@@ -22,6 +22,10 @@ public class MyHashMap<K, V> {
 		
 	}
 
+	public int size() {
+		return myLinkedList.size();
+	}
+	
 	public void print() {
 		myLinkedList.print();
 	}
@@ -29,5 +33,12 @@ public class MyHashMap<K, V> {
 	public V get(K key) {
 		MyMapNode<K,V> itemNode = (MyMapNode<K, V>) myLinkedList.search(key);
 		return itemNode != null ? itemNode.getValue() : null;
+	}
+
+	public void remove(K key) {
+		MyMapNode<K,V> itemNode = (MyMapNode<K, V>) myLinkedList.search(key);
+		if (itemNode != null) {
+			myLinkedList.remove(itemNode);
+		}
 	}
 }
